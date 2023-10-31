@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: zhcm_yd_skala
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://192.168.245.128:8000
+          client: "300"
+        app:
+          name: ZHCM_YD_SKALA
+          description: Mahalli Personel Skala
+          package: ZHR_FIORI
+          transport: D28K904358
